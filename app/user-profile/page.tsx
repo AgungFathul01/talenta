@@ -282,9 +282,8 @@ export default function UserProfile() {
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 md:gap-6">
             {/* Sidebar */}
-            {showSidebar &&
-              (
-                <div className="lg:col-span-1 space-y-4 md:space-y-6">
+            {showSidebar && (
+              <div className="lg:col-span-1 space-y-4 md:space-y-6">
                 {/* Stats Section - Desktop */}
                 <div className="hidden md:block lg:hidden mb-6">
                   <div className="grid grid-cols-4 gap-3">
@@ -325,10 +324,7 @@ export default function UserProfile() {
                         <Code className="h-4 w-4" />
                         Keahlian
                       </h3>
-                      <div className="flex flex-wrap gap-1.5  />
-                        Keahlian
-                      </h3>
-                      <div className=\"flex flex-wrap gap-1.5 md:gap-2">
+                      <div className="flex flex-wrap gap-1.5 md:gap-2">
                         {userData.skills.map((skill) => (
                           <Badge
                             key={skill}
@@ -474,7 +470,7 @@ export default function UserProfile() {
                   </CardContent>
                 </Card>
               </div>
-              )}
+            )}
 
             {/* Main Content */}
             <div className="lg:col-span-2 space-y-4 md:space-y-6">
