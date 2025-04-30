@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { Bell, Menu, User, X } from "lucide-react"
+import { Bell, Menu, User, X, MessageSquare, FileText } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
@@ -116,6 +116,24 @@ export default function Navbar() {
                     <DropdownMenuItem asChild>
                       <Link href="/user-profile" className="cursor-pointer">
                         Profil Saya
+                      </Link>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem asChild>
+                      <Link href="/dashboard/messages" className="cursor-pointer">
+                        Pesan
+                        {/* Tambahkan indikator jika ada pesan yang belum dibaca */}
+                        <span className="ml-2 bg-blue-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
+                          2
+                        </span>
+                      </Link>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem asChild>
+                      <Link href="/dashboard/offers" className="cursor-pointer">
+                        Tawaran Pekerjaan
+                        {/* Tambahkan indikator jika ada tawaran yang belum direspon */}
+                        <span className="ml-2 bg-orange-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
+                          3
+                        </span>
                       </Link>
                     </DropdownMenuItem>
                     {userType === "talent" ? (
@@ -239,6 +257,28 @@ export default function Navbar() {
                         >
                           <User className="h-4 w-4" />
                           Profil Saya
+                        </Link>
+                        <Link
+                          href="/dashboard/messages"
+                          onClick={() => setIsMobileMenuOpen(false)}
+                          className="flex items-center gap-2 px-3 py-2 rounded-lg text-sm text-gray-700 hover:bg-gray-100"
+                        >
+                          <MessageSquare className="h-4 w-4" />
+                          Pesan
+                          <span className="ml-auto bg-blue-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
+                            2
+                          </span>
+                        </Link>
+                        <Link
+                          href="/dashboard/offers"
+                          onClick={() => setIsMobileMenuOpen(false)}
+                          className="flex items-center gap-2 px-3 py-2 rounded-lg text-sm text-gray-700 hover:bg-gray-100"
+                        >
+                          <FileText className="h-4 w-4" />
+                          Tawaran Pekerjaan
+                          <span className="ml-auto bg-orange-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
+                            3
+                          </span>
                         </Link>
                         <Link
                           href={userType === "talent" ? "/dashboard" : "/company-dashboard"}
